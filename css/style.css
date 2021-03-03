@@ -1,0 +1,35 @@
+:root {};
+
+/***************************/
+/* MAIN STYLES */
+
+body {
+  font-style: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/***************************/
+/* NAVIGATION STYLES */
+
+
+/***************************/
+/* ASIDE STYLES */
+
+.search-and-list {}
+
+li {
+  list-style: none;
+}
+
+/***************************/
+/* SECTION: DETAILED FORECAST STYLES */
+
+
+/***************************/
+/* SECTION: 5-DAY FORECAST STYLES */
+
+.weather-card {
+  background-color: blue;
+  color: white;
+
+}

@@ -6,50 +6,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dash</title>
   
-  <!-- Pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css"
-  integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <nav class="pure-u-1-1" style="background-color:powderblue;">
-    <h1>Weather Dash</h1>
-  </nav>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <h1>Weather Dashboard</h1>
+  </div>
+</nav>
 
   <main>
-    <div class="pure-g">
+    <div class="row">
 
-      <div class="pure-u-1-4" style="background-color:palegreen;">
-        <h2>My Location:</h2>
+      <div class="col-3 search-and-list" style="max-width: 350px; background-color:palegreen;">
+        <h5>Search for a City:</h5>
+        <div class="">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="recent-cities">
+          <ul class="list-group">
+            <li class="list-group-item">Austin</li>
+            <li class="list-group-item">Chicago</li>
+            <li class="list-group-item">New York</li>
+            <li class="list-group-item">Orlando</li>
+            <li class="list-group-item">Seattle</li>
+            <li class="list-group-item">Denver</li>
+            <li class="list-group-item">Atlanta</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="pure-u-3-4" style="background-color: lightpink;">
+      <div class="col-7">
 
-        <section class="pure-u-1-1"> <!-- Today's detailed forecast -->
-          <h2>Weather info:</h2>
-          <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque qui perspiciatis animi a recusandae sit odit tenetur iste numquam perferendis fugiat maxime sunt sint libero, deleniti vitae ab error. Facilis!</p>
+        <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast --> 
+          <h3>Atlanta (08/15/21)</h3>
+          <div class="row">
+            <div class="col-5">
+              <p>Temperature: 45°F</p>
+              <p>Humidity: 41%</p>
+              <p>Wind Speed: 4.7 MPH</p>
+              <p>UV Index: <span class="badge bg-warning text-dark">9.49</span></p>
+            </div>
+            <div class="col-4">
+              ☀
+            </div>
+            <div class="col"></div> <!-- empty div so weather icon is in the 'middle'-->
           </div>
         </section>
 
-        <section class="pure-g" style="background-color: lightyellow;"> <!-- 5 day forecast -->
+        <h2>5-Day Forecast</h2>
+        <section class="row" style="background-color: lightyellow;"> <!-- 5 day forecast -->
           
-          <div class="pure-u-1-5" style="background-color:powderblue;">
-            <h4>Monday:</h4>
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h4>MON 8/16</h4>
+                <i>☀</i>
+                <p>Temp: 86.5°F</p>
+                <p>Humidity: 43%</p>
+              </div>
+              <div class="col">
+                <h4>MON 8/16</h4>
+                <i>☀</i>
+                <p>Temp: 86.5°F</p>
+                <p>Humidity: 43%</p>
+              </div>
+              <div class="col">
+                <h4>MON 8/16</h4>
+                <i>☀</i>
+                <p>Temp: 86.5°F</p>
+                <p>Humidity: 43%</p>
+              </div>
+              <div class="col">
+                <h4>MON 8/16</h4>
+                <i>☀</i>
+                <p>Temp: 86.5°F</p>
+                <p>Humidity: 43%</p>
+              </div>
+              <div class="col">
+                <h4>MON 8/16</h4>
+                <i>☀</i>
+                <p>Temp: 86.5°F</p>
+                <p>Humidity: 43%</p>
+              </div>
+            </div>
           </div>
-          <div class="pure-u-1-5" style="background-color:powderblue;">
-            <h4>Tuesday:</h4>
-          </div>
-          <div class="pure-u-1-5" style="background-color:powderblue;">
-            <h4>Wednesday:</h4>
-          </div>
-          <div class="pure-u-1-5" style="background-color:powderblue;">
-            <h4>Thursday:</h4>
-          </div>
-          <div class="pure-u-1-5" style="background-color:powderblue;">
-            <h4>Friday:</h4>
-          </div>
+
+
+
 
         </section>
 
@@ -57,6 +110,8 @@
 
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
