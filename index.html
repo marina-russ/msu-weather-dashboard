@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dash</title>
-  
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -20,98 +19,128 @@
   </div>
 </nav>
 
-  <main>
-    <div class="row">
+<main>
+  <div class="row">
 
-      <div class="col-3 search-and-list" style="max-width: 350px; background-color:palegreen;">
-        <h5>Search for a City:</h5>
-        <div class="">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+    <div class="col-3" style="max-width: 350px; background-color:palegreen;">
+      <h5>Search for a City:</h5>
+      <div>
+
+        <div class="input">
+          <input type="text" placeholder="Enter the city" class="input-text">
+          <input type="submit" value="Submit" class="submit button">
         </div>
-        <div class="recent-cities">
-          <ul class="list-group">
-            <li class="list-group-item">Austin</li>
-            <li class="list-group-item">Chicago</li>
-            <li class="list-group-item">New York</li>
-            <li class="list-group-item">Orlando</li>
-            <li class="list-group-item">Seattle</li>
-            <li class="list-group-item">Denver</li>
-            <li class="list-group-item">Atlanta</li>
-          </ul>
-        </div>
+
+
+
+
+
+
+
+
+
+        <!-- <form class="d-flex">
+          <input class="form-control search-box me-2 input-value" type="submit" aria-label="Search">
+          <button class="btn btn-outline-success button" type="submit">Search</button>
+        </form> -->
       </div>
-
-      <div class="col-7">
-
-        <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast --> 
-          <h3>Atlanta (08/15/21)</h3>
-          <div class="row">
-            <div class="col-5">
-              <p>Temperature: 45°F</p>
-              <p>Humidity: 41%</p>
-              <p>Wind Speed: 4.7 MPH</p>
-              <p>UV Index: <span class="badge bg-warning text-dark">9.49</span></p>
-            </div>
-            <div class="col-4">
-              ☀
-            </div>
-            <div class="col"></div> <!-- empty div so weather icon is in the 'middle'-->
-          </div>
-        </section>
-
-        <h2>5-Day Forecast</h2>
-        <section class="row" style="background-color: lightyellow;"> <!-- 5 day forecast -->
-          
-
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <h4>MON 8/16</h4>
-                <i>☀</i>
-                <p>Temp: 86.5°F</p>
-                <p>Humidity: 43%</p>
-              </div>
-              <div class="col">
-                <h4>MON 8/16</h4>
-                <i>☀</i>
-                <p>Temp: 86.5°F</p>
-                <p>Humidity: 43%</p>
-              </div>
-              <div class="col">
-                <h4>MON 8/16</h4>
-                <i>☀</i>
-                <p>Temp: 86.5°F</p>
-                <p>Humidity: 43%</p>
-              </div>
-              <div class="col">
-                <h4>MON 8/16</h4>
-                <i>☀</i>
-                <p>Temp: 86.5°F</p>
-                <p>Humidity: 43%</p>
-              </div>
-              <div class="col">
-                <h4>MON 8/16</h4>
-                <i>☀</i>
-                <p>Temp: 86.5°F</p>
-                <p>Humidity: 43%</p>
-              </div>
-            </div>
-          </div>
-
-
-
-
-        </section>
-
+      <div class="recent-cities">
+        <ul class="list-group">
+          <li class="list-group-item">Austin</li>
+          <li class="list-group-item">Chicago</li>
+          <li class="list-group-item">New York</li>
+          <li class="list-group-item">Orlando</li>
+          <li class="list-group-item">Seattle</li>
+          <li class="list-group-item">Denver</li>
+          <li class="list-group-item">Atlanta</li>
+        </ul>
       </div>
-
     </div>
+
+    <div class="col-7">
+
+<!-- <div class="display">
+  <h1 class="name"></h1>
+  <p class="desc"></p>
+  <p class="temp"></p>
+</div>
+-->
+
+      <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast --> 
+        
+        
+        <div class="col-3">
+          <h3 class="city-name"></h3>
+          <h4 class="today-date"></h4>
+          <h4 class="today-time"></h4>
+          <h4>Hello</h4>
+        </div>
+        
+        <div class="row">
+          <div class="col-5">
+            <p class="city-temp-today">Temperature: </p>
+            <p class="city-humid-today">Humidity: </p>
+            <p class="city-wind-today">Wind Speed: </p>
+            <p>UV Index: <span class="badge bg-warning text-dark">9.49</span></p>
+          </div>
+          <div class="col-4">
+            <p class="city-desc-today">Today:</p>
+            ☀
+          </div>
+        </div>
+      </section>
+
+      <h2>5-Day Forecast</h2>
+      <section class="row" style="background-color: lightyellow;"> <!-- 5 day forecast -->
+        
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h4 class="day1">MON 8/16</h4>
+              <i>☀</i>
+              <p class="future-temp-day1">Temp: °F</p>
+              <p class="future-humid-day1">Humidity:</p>
+            </div>
+            <div class="col">
+              <h4 class="day2">MON 8/16</h4>
+              <i>☀</i>
+              <p class="future-temp-day2">Temp: °F</p>
+              <p class="future-humid-day2">Humidity:</p>
+            </div>
+            <div class="col">
+              <h4 class="day3">MON 8/16</h4>
+              <i>☀</i>
+              <p class="future-temp-day3">Temp: °F</p>
+              <p class="future-humid-day3">Humidity:</p>
+            </div>
+            <div class="col">
+              <h4 class="day4">MON 8/16</h4>
+              <i>☀</i>
+              <p class="future-temp-day4">Temp: °F</p>
+              <p class="future-humid-day4">Humidity:</p>
+            </div>
+            <div class="col">
+              <h4 class="day5">MON 8/16</h4>
+              <i>☀</i>
+              <p class="future-temp-day5">Temp: °F</p>
+              <p class="future-humid-day5">Humidity:</p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        </section>
+      </div>
+    </div> 
+
+
   </main>
+  <!-- Bootstrap 5 -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
