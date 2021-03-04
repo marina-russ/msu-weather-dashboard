@@ -61,13 +61,14 @@ button.addEventListener('click', function(){
     let cityWind = data.wind.speed;
       console.log(data);
 
+    //replaces inner HTML with API data
     city.innerHTML = cityName;
     todayDate.innerHTML = dd + '/' + mm;
     todayTime.innerHTML = formattedTime;
     desc.innerHTML = "Today: " + cityDesc;
     temp.innerHTML = "Temperature: " + cityTemp;
     humid.innerHTML = "Humidity: " + cityHumid;
-    wind.innerHTML = "Wind Speed: " + cityWind;
+    wind.innerHTML = `<b>Wind Speed</b>: ${cityWind}`
   });
 
   // * 5-DAY FORECAST
@@ -118,7 +119,7 @@ button.addEventListener('click', function(){
 //.catch(err => alert("That's not a city name!"));
 });
 
-
+// TODO: localStorage of city names, UV index, weather icons
 
 // ! PROBLEMS TO SOLVE:
 
