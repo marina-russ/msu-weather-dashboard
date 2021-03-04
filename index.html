@@ -26,17 +26,10 @@
       <h5>Search for a City:</h5>
       <div>
 
-        <div class="input">
+        <div class="input" id="search-div">
           <input type="text" placeholder="Enter the city" class="input-text">
           <input type="submit" value="Submit" class="submit button">
         </div>
-
-
-
-
-
-
-
 
 
         <!-- <form class="d-flex">
@@ -45,35 +38,25 @@
         </form> -->
       </div>
       <div class="recent-cities">
-        <ul class="list-group">
+        <ul class="list-group" id="search-list">
           <li class="list-group-item">Austin</li>
           <li class="list-group-item">Chicago</li>
           <li class="list-group-item">New York</li>
           <li class="list-group-item">Orlando</li>
-          <li class="list-group-item">Seattle</li>
-          <li class="list-group-item">Denver</li>
-          <li class="list-group-item">Atlanta</li>
+          <li class="list-group-item search-city">Seattle</li>
+          <li class="list-group-item search-city">Denver</li>
+          <li class="list-group-item search-city">Atlanta</li>
         </ul>
       </div>
     </div>
 
     <div class="col-7">
 
-<!-- <div class="display">
-  <h1 class="name"></h1>
-  <p class="desc"></p>
-  <p class="temp"></p>
-</div>
--->
-
-      <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast --> 
-        
+      <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast -->        
         
         <div class="col-3">
-          <h3 class="city-name"></h3>
-          <h4 class="today-date"></h4>
-          <h4 class="today-time"></h4>
-          <h4>Hello</h4>
+          <h3 class="city-name">Location</h3>
+          <h4 class="today-date">Date</h4>
         </div>
         
         <div class="row">
@@ -81,7 +64,7 @@
             <p class="city-temp-today">Temperature: </p>
             <p class="city-humid-today">Humidity: </p>
             <p class="city-wind-today">Wind Speed: </p>
-            <p>UV Index: <span class="badge bg-warning text-dark">9.49</span></p>
+            <p class="city-uvi-today">UV Index: <span class="badge bg-warning text-dark">9.49</span></p>
           </div>
           <div class="col-4">
             <p class="city-desc-today">Today:</p>
