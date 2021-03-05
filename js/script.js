@@ -18,8 +18,8 @@
 //var DateTime = luxon.DateTime;
 //var now = DateTime.now();
 //console.log("today: ", DateTime);
-// ! PROBLEMS TO SOLVE:
-// ! How do I increase date after 30th or 31st of the month?
+// PROBLEMS TO SOLVE:
+// How do I increase date after 30th or 31st of the month?
 ////tomorrow
 // var dt1 = DateTime.now();
 // dt1.plus({ days: 1});
@@ -169,14 +169,14 @@ const generateWeatherInfo = function (userInput) {
           let futureIconData3 = data.list[19].weather[0].icon;
           let futureIconData4 = data.list[27].weather[0].icon;
           let futureIconData5 = data.list[35].weather[0].icon;
-          console.log(futureIconData2);
+          console.log("futureIconData2: ", futureIconData2);
 
           let futureIcon1 = document.querySelector('.future-icon-day1');
           let futureIcon2 = document.querySelector('.future-icon-day2');
           let futureIcon3 = document.querySelector('.future-icon-day3');
           let futureIcon4 = document.querySelector('.future-icon-day4');
           let futureIcon5 = document.querySelector('.future-icon-day5');
-          console.log(futureIcon2);
+          console.log("futureIcon2: ", futureIcon2);
 
           futureIcon1.innerHTML = futureIconData1;
           futureIcon2.innerHTML = `<img src="assets/icons/${futureIconData2}.png" class="future-icon-day2></img>`;
