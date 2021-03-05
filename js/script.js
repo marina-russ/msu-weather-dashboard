@@ -34,15 +34,12 @@ const api = {
 };
 
 // * links javascript variables to HTML
-let button = document.getElementById('search-button');
-let input = document.getElementById('input-text');
+let button = document.querySelector('#search-button');
+let input = document.querySelector('#input-text');
 // ! .trim()
 //let input = document.trim(getElementById('input-text'));
 //let input = (document.getElementById('input-text')).trim;
 //input = input.trim();
-
-
-
 
 
 // ***** GET WEATHER INFO FROM API
@@ -55,29 +52,29 @@ const generateWeatherInfo = function (userInput) {
     .then(data => {
       // links javascript to API data
       let cityName = data.name;
-      let cityDesc = data.weather[0].description;
       let cityTemp = parseInt(data.main.temp);
       let cityHumid = data.main.humidity;
       let cityWind = data.wind.speed;
-      let cityLat = data.coord.lat;
-      let cityLon = data.coord.lon;
+      let cityDesc = data.weather[0].description;
+      let cityIcon = data.weather[0].icon;
       console.log("Today's weather: ", data);
-
       // links javascript to HTML elements
       let city = document.querySelector('#city-name');
-      let desc = document.querySelector('#city-desc-today');
       let temp = document.querySelector('#city-temp-today');
       let humid = document.querySelector('#city-humid-today');
       let wind = document.querySelector('#city-wind-today');
-
+      let desc = document.querySelector('#city-desc-today');
+      let icon = document.querySelector('#city-icon-today');
       // replaces javascript HTML element content with javascript API data
       city.innerHTML = cityName;
-      desc.innerHTML = "Today: " + cityDesc;
+      icon.innerHTML = cityIcon;
       temp.innerHTML = "Temperature: " + cityTemp + "°F";
       humid.innerHTML = "Humidity: " + cityHumid + "%";
       wind.innerHTML = `<b>Wind Speed</b>: ${cityWind} MPH`;
-
-      // lets us access lat & lon outside of this function, which is required for UV Index API to be successfully fetched further below
+      desc.innerHTML = "Today: " + cityDesc;
+      // lets us access lat+lon outside of this fxn, required for UV Index API to be successfully fetched further below
+      let cityLat = data.coord.lat;
+      let cityLon = data.coord.lon;
       let geolocation = {
         lat: cityLat,
         lon: cityLon
@@ -89,42 +86,84 @@ const generateWeatherInfo = function (userInput) {
         .then(response => response.json())
         .then(data => {
           // links javascript to API data
+          // day 1
           let futureTempData1 = parseInt(data.list[3].main.temp);
           let futureHumidData1 = data.list[3].main.humidity;
+          let futureDescData1 = data.list[3].weather[0].description;
+          let futureIconData1 = data.list[3].weather[0].icon;
+          // day 2
           let futureTempData2 = parseInt(data.list[11].main.temp);
           let futureHumidData2 = data.list[11].main.humidity;
+          let futureDescData2 = data.list[11].weather[0].description;
+          let futureIconData2 = data.list[11].weather[0].icon;
+          // day 3
           let futureTempData3 = parseInt(data.list[19].main.temp);
           let futureHumidData3 = data.list[19].main.humidity;
+          let futureDescData3 = data.list[19].weather[0].description;
+          let futureIconData3 = data.list[19].weather[0].icon;
+          // day 4
           let futureTempData4 = parseInt(data.list[27].main.temp);
           let futureHumidData4 = data.list[27].main.humidity;
+          let futureDescData4 = data.list[27].weather[0].description;
+          let futureIconData4 = data.list[27].weather[0].icon;
+          // day 5
           let futureTempData5 = parseInt(data.list[35].main.temp);
           let futureHumidData5 = data.list[35].main.humidity;
+          let futureDescData5 = data.list[35].weather[0].description;
+          let futureIconData5 = data.list[35].weather[0].icon;
           console.log("5 day forecast: ", data);
-
           // links javascript to HTML elements
+          // day 1
           let futureTemp1 = document.querySelector('.future-temp-day1');
           let futureHumid1 = document.querySelector('.future-humid-day1');
+          let futureDesc1 = document.querySelector('.future-desc-day1');
+          let futureIcon1 = document.querySelector('.future-icon-day1');
+          // day 2
           let futureTemp2 = document.querySelector('.future-temp-day2');
           let futureHumid2 = document.querySelector('.future-humid-day2');
+          let futureDesc2 = document.querySelector('.future-desc-day2');
+          let futureIcon2 = document.querySelector('.future-icon-day2');
+          // day 3
           let futureTemp3 = document.querySelector('.future-temp-day3');
           let futureHumid3 = document.querySelector('.future-humid-day3');
+          let futureDesc3 = document.querySelector('.future-desc-day3');
+          let futureIcon3 = document.querySelector('.future-icon-day3');
+          // day 4
           let futureTemp4 = document.querySelector('.future-temp-day4');
           let futureHumid4 = document.querySelector('.future-humid-day4');
+          let futureDesc4 = document.querySelector('.future-desc-day4');
+          let futureIcon4 = document.querySelector('.future-icon-day4');
+          // day 5
           let futureTemp5 = document.querySelector('.future-temp-day5');
           let futureHumid5 = document.querySelector('.future-humid-day5');
-
+          let futureDesc5 = document.querySelector('.future-desc-day5');
+          let futureIcon5 = document.querySelector('.future-icon-day5');
           // replaces javascript HTML element content with javascript API data
+          // day 1
           futureTemp1.innerHTML = "Temperature: " + futureTempData1 + "°F";
           futureHumid1.innerHTML = "Humidity: " + futureHumidData1 + "%";
+          futureDesc1.innerHTML = "Forecast: " + futureDescData1;
+          futureIcon1.innerHTML = futureIconData1;
+          // day 2
           futureTemp2.innerHTML = "Temperature: " + futureTempData2 + "°F";
           futureHumid2.innerHTML = "Humidity: " + futureHumidData2 + "%";
+          futureDesc2.innerHTML = "Forecast: " + futureDescData2;
+          futureIcon2.innerHTML = futureIconData2;
+          // day 3
           futureTemp3.innerHTML = "Temperature: " + futureTempData3 + "°F";
           futureHumid3.innerHTML = "Humidity: " + futureHumidData3 + "%";
+          futureDesc3.innerHTML = "Forecast: " + futureDescData3;
+          futureIcon3.innerHTML = futureIconData3;
+          // day 4
           futureTemp4.innerHTML = "Temperature: " + futureTempData4 + "°F";
           futureHumid4.innerHTML = "Humidity: " + futureHumidData4 + "%";
+          futureDesc4.innerHTML = "Forecast: " + futureDescData4;
+          futureIcon4.innerHTML = futureIconData4;
+          // day 5
           futureTemp5.innerHTML = "Temperature: " + futureTempData5 + "°F";
           futureHumid5.innerHTML = "Humidity: " + futureHumidData5 + "%";
-
+          futureDesc5.innerHTML = "Forecast: " + futureDescData5;
+          futureIcon5.innerHTML = futureIconData5;
           // ***** UV INDEX API
           // sends fetch request for UV index
           fetch(`${api.base}onecall?lat=${geolocation.lat}&lon=${geolocation.lon}&exclude={minutely}&units=imperial&appid=${api.key}`)
