@@ -42,7 +42,7 @@ let button = document.querySelector('#search-button');
 // ***** GET WEATHER INFO FROM API
 function generateWeatherInfo(searchThis) {
   // *** TODAY'S FORECAST API
-  // sends fetch request for today's forecast; converts promise response data into JSON objects; transfers API data from JSON objects to new javascript variables
+  // sends fetch request for today's forecast
   fetch(`${api.base}weather?q=${searchThis}&units=imperial&appid=${api.key}`)
     .then(response => response.json())
     .then(data => {
@@ -68,7 +68,7 @@ function generateWeatherInfo(searchThis) {
       humid.innerHTML = `Humidity: ${cityHumid}"%`;
       wind.innerHTML = `Wind Speed: ${cityWind} MPH`;
       desc.innerHTML = `Today: ${cityDesc}`;
-      // lets us access lat+lon outside of this fxn, required for UV Index API to be successfully fetched further below
+      // lets us access lat+lon outside of this fxn, which is __required__ for UV Index API to be successfully fetched further below
       let cityLat = data.coord.lat;
       let cityLon = data.coord.lon;
       let geolocation = {
@@ -81,7 +81,6 @@ function generateWeatherInfo(searchThis) {
       fetch(`${api.base}forecast?q=${searchThis}&units=imperial&appid=${api.key}`)
         .then(response => response.json())
         .then(data => {
-          // links javascript to API data
           // day 1
           let futureTempData1 = parseInt(data.list[3].main.temp);
           let futureHumidData1 = data.list[3].main.humidity;
@@ -102,9 +101,7 @@ function generateWeatherInfo(searchThis) {
           let futureTempData5 = parseInt(data.list[35].main.temp);
           let futureHumidData5 = data.list[35].main.humidity;
           let futureDescData5 = data.list[35].weather[0].description;
-          ////let futureIconData5 = data.list[35].weather[0].icon;
           console.log("5 day forecast: ", data);
-          // links javascript to HTML elements
           // day 1
           let futureTemp1 = document.querySelector('.future-temp-day1');
           let futureHumid1 = document.querySelector('.future-humid-day1');
@@ -125,7 +122,6 @@ function generateWeatherInfo(searchThis) {
           let futureTemp5 = document.querySelector('.future-temp-day5');
           let futureHumid5 = document.querySelector('.future-humid-day5');
           let futureDesc5 = document.querySelector('.future-desc-day5');
-          // replaces javascript HTML element content with javascript API data
           // day 1
           futureTemp1.innerHTML = "Temperature: " + futureTempData1 + "°F";
           futureHumid1.innerHTML = "Humidity: " + futureHumidData1 + "%";
@@ -154,16 +150,12 @@ function generateWeatherInfo(searchThis) {
           let futureIconData3 = data.list[19].weather[0].icon;
           let futureIconData4 = data.list[27].weather[0].icon;
           let futureIconData5 = data.list[35].weather[0].icon;
-          ////console.log("futureIconData1: ", futureIconData1);
-          ////console.log("futureIconData2: ", futureIconData2);
           // links javascript to HTML elements
           let futureIcon1 = document.querySelector('.future-icon-day1');
           let futureIcon2 = document.querySelector('.future-icon-day2');
           let futureIcon3 = document.querySelector('.future-icon-day3');
           let futureIcon4 = document.querySelector('.future-icon-day4');
           let futureIcon5 = document.querySelector('.future-icon-day5');
-          ////console.log("futureIcon1: ", futureIcon1);
-          ////console.log("futureIcon2: ", futureIcon2);
           // replaces javascript HTML element content with javascript API data
           futureIcon1.innerHTML = `<img src="assets/icons/${futureIconData1}.png" class="future-icon-day1"></img>`;
           futureIcon2.innerHTML = `<img src="assets/icons/${futureIconData2}.png" class="future-icon-day2"></img>`;
@@ -185,22 +177,18 @@ function generateWeatherInfo(searchThis) {
 
                 // UVI levels
                 if (uvIndex <= 2) {
-                  document.querySelector('.badge').style.backgroundColor = '#198754';
-                  // green, 1-2, 
+                  document.querySelector('.badge').style.backgroundColor = '#198754';// green, 1-2, 
                 } else if (uvIndex <= 5) {
-                  document.querySelector('.badge').style.backgroundColor = '#ffc107';
-                  document.querySelector('.badge').style.Color = '#000';
-                  //yellow, 3-5, ; want .text-dark added
+                  document.querySelector('.badge').style.cssText += 'background-color: #ffc107; color: #000;';
+                  //yellow, 3-5; want dark text added
                 } else if (uvIndex <= 7) {
-                  document.querySelector('.badge').style.backgroundColor = '#fd7e14';
-                  document.querySelector('.badge').style.Color = '#000';
-                  //orange, 6-7, ; want .text-dark added
+                  document.querySelector('.badge').style.cssText += 'background-color: #fd7e14; color: #000;';
+                  //orange, 6-7; want dark text added
                 } else if (uvIndex <= 10) {
-                  document.querySelector('.badge').style.backgroundColor = '#dc3545';
-                  //red, 8-10, 
+                  document.querySelector('.badge').style.backgroundColor = '#dc3545'; //red, 8-10, 
                 } else if (uvIndex > 10) {
-                  document.querySelector('.badge').style.backgroundColor = '#6f42c1';
-                  //purple, 11, 
+                  document.querySelector('.badge').style.backgroundColor = '#6f42c1'; //purple, 11, 
+                  
                 }
             });
         });
@@ -215,17 +203,14 @@ button.addEventListener('click', function () {
   let searchThis = userInput;
   document.querySelector('#input-text').value = '';
   generateWeatherInfo(searchThis);
-
+  
   //create button
   let cityNameButton = document.createElement('li');
   cityNameButton.setAttribute('class', 'city-list-item list-group-item');
   cityNameButton.setAttribute('data-city', `${userInput}`);
   cityNameButton.innerHTML = userInput;
-
   //add button to the page
   document.querySelector('#search-list').append(cityNameButton);
-  // document.querySelector('#search-list').addEventListener("click", function() {
-  //   generateWeatherInfo(`${data-city}`);
 
   //save value to local storage, return the value as saveCity to use outside this function
   localStorage.setItem('city', userInput);
