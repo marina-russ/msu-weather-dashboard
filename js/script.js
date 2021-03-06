@@ -1,20 +1,39 @@
 // maybe also add feature that shows weather alerts? 
 
 // ***** DATES
-// ! LUXON is currently commented out in HTML
-//import { DateTime } from "luxon";
-//var DateTime = luxon.DateTime;
-//var now = DateTime.now();
-//console.log("today: ", DateTime);
-// PROBLEMS TO SOLVE:
-// How do I increase date after 30th or 31st of the month?
-////tomorrow
-// var dt1 = DateTime.now();
-// dt1.plus({ days: 1});
-// // two days from now
-// var dt2 = DateTime.now();
-// dt2.plus({ days: 2 });
-// console.log("day 1 :", dt1 ,"day 2: ", dt2);
+// ! for 5-day forecast, get format as SUN MAR 07
+// this is a shortcut so I don't have to add luxon. to the beginning of everything
+let DateTime = luxon.DateTime; 
+
+// defines JS variables for luxon
+let today = DateTime.local();
+let f = {month: 'long', day: '2-digit'};
+let m = today.get('monthShort');
+let w = today.get('weekday');
+// displays today's date
+let dateOutput = document.getElementById('today-date');
+dateOutput.textContent = "Today: " + today.toLocaleString(f, m, w);
+console.log("date output", dateOutput);
+// day 1
+let dateOutputDay1 = document.querySelector('.day1');
+let day1 = DateTime.now().plus({ days: 1});
+dateOutputDay1.textContent = day1.toLocaleString(f, m, w);
+// day 2
+let dateOutputDay2 = document.querySelector('.day2');
+let day2 = DateTime.now().plus({ days: 2 });
+dateOutputDay2.textContent = day2.toLocaleString(f, m, w);
+// day 3
+let dateOutputDay3 = document.querySelector('.day3');
+let day3 = DateTime.now().plus({ days: 3 });
+dateOutputDay3.textContent = day3.toLocaleString(f, m, w);
+// day 4
+let dateOutputDay4 = document.querySelector('.day4');
+let day4 = DateTime.now().plus({ days: 4 });
+dateOutputDay4.textContent = day4.toLocaleString(f, m, w);
+// day 5
+let dateOutputDay5 = document.querySelector('.day5');
+let day5 = DateTime.now().plus({ days: 5 });
+dateOutputDay5.textContent = day5.toLocaleString(f, m, w);
 
 // ***** ACCESS API
 const api = {
@@ -59,7 +78,7 @@ const generateWeatherInfo = function (userInput) {
         lat: cityLat,
         lon: cityLon
       };
-
+      
       // *** 5-DAY FORECAST API
       // sends fetch request for 5-day forecast
       fetch(`${api.base}forecast?q=${userInput}&units=imperial&appid=${api.key}`)
@@ -165,12 +184,9 @@ const generateWeatherInfo = function (userInput) {
               // links javascript to HTML elements
               let cityUVIndex = document.querySelector('#city-uvi-today');
               // replaces javascript HTML element content with javascript API data
-              cityUVIndex.innerHTML = `<p id="city-uvi-today">UV Index: <span id="uvi-badge" class="badge rounded-pill bg-secondary">${uvIndex}</span></p>`;
+              cityUVIndex.innerHTML = `<p id="city-uvi-today">UV Index: <span id="uvi-badge" class="badge rounded-pill">${uvIndex}</span></p>`;
 
-// ******! UVI levels
-              // info on UV index:
-              // https://www.epa.gov/sunsafety/uv-index-scale-0
-              function badgeColor(uvIndex) {
+                // UVI levels
                 if (uvIndex <= 2) {
                   document.querySelector('.badge').style.backgroundColor = '#198754';
                   // green, 1-2, 
@@ -189,8 +205,6 @@ const generateWeatherInfo = function (userInput) {
                   document.querySelector('.badge').style.backgroundColor = '#6f42c1';
                   //purple, 11, 
                 }
-              }
-              badgeColor();
             });
         });
     });
@@ -201,6 +215,7 @@ const generateWeatherInfo = function (userInput) {
 
 // ***** LIST CITIES AS BUTTONS
 // sends fetch request on button click
+
 button.addEventListener('click', function () {
   const userInput = document.querySelector('#input-text').value;
   document.querySelector('#input-text').value = '';
@@ -208,14 +223,16 @@ button.addEventListener('click', function () {
 
   //create button
   let buttonCity = document.createElement('li');
-  buttonCity.setAttribute('class', `city-list-item list-group-item ${userInput}`);
+  buttonCity.setAttribute('class', 'city-list-item list-group-item');
+  buttonCity.setAttribute('data-city', `${userInput}`)
   buttonCity.innerHTML = userInput;
 
+    //! max said that it needs data-key attribute
+  
   //add button to the page
   document.querySelector('#search-list').append(buttonCity);
 
-//!! need to add event listener to the button
   document.querySelector('#search-list').addEventListener("click", function() {
-    generateWeatherInfo(userInput);
+    generateWeatherInfo(`${data-city}`);
   });
 });
