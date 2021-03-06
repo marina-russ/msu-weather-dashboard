@@ -1,15 +1,12 @@
-// maybe also add feature that shows weather alerts? 
-
 // ***** DATES
-// ! for 5-day forecast, get format as SUN MAR 07
 // this is a shortcut so I don't have to add luxon. to the beginning of everything
 let DateTime = luxon.DateTime; 
-
 // defines JS variables for luxon
 let today = DateTime.local();
 let f = {month: 'long', day: '2-digit'};
 let m = today.get('monthShort');
 let w = today.get('weekday');
+
 // displays today's date
 let dateOutput = document.getElementById('today-date');
 dateOutput.textContent = "Today: " + today.toLocaleString(f, m, w);
@@ -67,10 +64,10 @@ const generateWeatherInfo = function (userInput) {
       // replaces javascript HTML element content with javascript API data
       city.innerHTML = cityName;
       icon.innerHTML = `<img src="assets/icons/${cityIcon}.png" class="city-icon-today"></img>`;
-      temp.innerHTML = "Temperature: " + cityTemp + "°F";
-      humid.innerHTML = "Humidity: " + cityHumid + "%";
-      wind.innerHTML = `<b>Wind Speed</b>: ${cityWind} MPH`;
-      desc.innerHTML = "Today: " + cityDesc;
+      temp.innerHTML = `<b>Temperature</b>: ${cityTemp}°F`;
+      humid.innerHTML = `Humidity: ${cityHumid}"%`;
+      wind.innerHTML = `Wind Speed: ${cityWind} MPH`;
+      desc.innerHTML = `Today: ${cityDesc}`;
       // lets us access lat+lon outside of this fxn, required for UV Index API to be successfully fetched further below
       let cityLat = data.coord.lat;
       let cityLon = data.coord.lon;
