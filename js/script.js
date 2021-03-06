@@ -40,10 +40,10 @@ const api = {
 let button = document.querySelector('#search-button');
 
 // ***** GET WEATHER INFO FROM API
-const generateWeatherInfo = function (userInput) {
+function generateWeatherInfo(searchThis) {
   // *** TODAY'S FORECAST API
   // sends fetch request for today's forecast; converts promise response data into JSON objects; transfers API data from JSON objects to new javascript variables
-  fetch(`${api.base}weather?q=${userInput}&units=imperial&appid=${api.key}`)
+  fetch(`${api.base}weather?q=${searchThis}&units=imperial&appid=${api.key}`)
     .then(response => response.json())
     .then(data => {
       // links javascript to API data
@@ -78,7 +78,7 @@ const generateWeatherInfo = function (userInput) {
       
       // *** 5-DAY FORECAST API
       // sends fetch request for 5-day forecast
-      fetch(`${api.base}forecast?q=${userInput}&units=imperial&appid=${api.key}`)
+      fetch(`${api.base}forecast?q=${searchThis}&units=imperial&appid=${api.key}`)
         .then(response => response.json())
         .then(data => {
           // links javascript to API data
@@ -205,31 +205,43 @@ const generateWeatherInfo = function (userInput) {
             });
         });
     });
-
-  //TODO: alert for wrong city names
-  //.catch(err => alert("That's not a city name!"));
-};
+}
 
 // ***** LIST CITIES AS BUTTONS
-// sends fetch request on button click
+let saveCity = localStorage.getItem('city');
 
 button.addEventListener('click', function () {
   const userInput = document.querySelector('#input-text').value;
+  let searchThis = userInput;
   document.querySelector('#input-text').value = '';
-  generateWeatherInfo(userInput);
+  generateWeatherInfo(searchThis);
 
   //create button
-  let buttonCity = document.createElement('li');
-  buttonCity.setAttribute('class', 'city-list-item list-group-item');
-  buttonCity.setAttribute('data-city', `${userInput}`)
-  buttonCity.innerHTML = userInput;
+  let cityNameButton = document.createElement('li');
+  cityNameButton.setAttribute('class', 'city-list-item list-group-item');
+  cityNameButton.setAttribute('data-city', `${userInput}`);
+  cityNameButton.innerHTML = userInput;
 
-    //! max said that it needs data-key attribute
-  
   //add button to the page
-  document.querySelector('#search-list').append(buttonCity);
+  document.querySelector('#search-list').append(cityNameButton);
+  // document.querySelector('#search-list').addEventListener("click", function() {
+  //   generateWeatherInfo(`${data-city}`);
 
-  document.querySelector('#search-list').addEventListener("click", function() {
-    generateWeatherInfo(`${data-city}`);
+  //save value to local storage, return the value as saveCity to use outside this function
+  localStorage.setItem('city', userInput);
+  console.log(saveCity);
+  return saveCity;
+
   });
-});
+
+  window.onload = checkSearch;
+  // if #city-name is empty and localStorage exists, run weather search on localStorage item.
+  function checkSearch() {
+    if ((document.getElementById('#city-name') == null) && (localStorage.getItem('city'))) {
+      console.log('a city is saved!');
+      generateWeatherInfo(saveCity);
+    } else {
+      console.log('no city is saved :(');
+      return;
+    }
+  }
