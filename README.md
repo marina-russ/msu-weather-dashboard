@@ -1,5 +1,24 @@
 # weather-dashboard
-Features OpenWeather API
+Featuring OpenWeather API
 
+## :book: Table of Contents
+1. Project Criteria
+2. Challenges
+3. Contributions
+4. Deployed Application
 
-[Deployed Application](https://marina-russ.github.io/weather-dashboard/)
+### :star: Project Criteria:
+- User can search for a city using the OpenWeather API.
+- User's result shows current weather conditions as well as a 5-day forecast.
+- Current weather includes a UV index whose color changes based on whether conditions are favorable, moderate, or severe.
+- User's city search history is viewable.
+- User's most recent city search is stored in `localStorage`.
+
+### :mountain: Challenges:
+- A final criteria was to make the search history 'researchable' - ie, when User clicks on a city in the search history they are again presented with the weather results for that city. Everything I tried at the time was incredibly buggy, but I will revisit this code in the future.
+
+### :heart: Contributions:
+- Weather icons were created by Graphic Designer Ashely Jacer and can be found at [manifestinteractive's GitHub repo](https://github.com/manifestinteractive/weather-underground-icons)
+
+### :mage: Deployed Application:
+[Link to Deployed Application](https://marina-russ.github.io/weather-dashboard/)
