@@ -198,6 +198,14 @@ function generateWeatherInfo(searchThis) {
 // ***** LIST CITIES AS BUTTONS
 let saveCity = localStorage.getItem('city');
 
+// ! how do I get keydown to work alongside click event?
+button.addEventListener('keydown', function(event){
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    button.click();
+  }
+});
+
 button.addEventListener('click', function () {
   const userInput = document.querySelector('#input-text').value;
   let searchThis = userInput;

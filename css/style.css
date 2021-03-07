@@ -1,28 +1,51 @@
 :root {};
 
 /***************************/
-/* MAIN STYLES */
+/* GLOBAL STYLES */
 
 body {
   font-style: Helvetica, sans-serif;
   font-size: 16px;
 }
 
-/***************************/
-/* NAVIGATION STYLES */
-
-/***************************/
-/* ASIDE STYLES */
-
-.search-and-list {}
-
 li {
   list-style: none;
 }
 
+.icon-bkgd {
+  background-color: #fff;
+  border-radius: 30px;
+  min-width: 80px;
+  max-width: 150px;
+}
+
 /***************************/
-/* SECTION: DETAILED FORECAST STYLES */
+/* NAVIGATION STYLES */
+
+/***************************/
+/* SEARCH STYLES */
+
+#search-history-column {
+  max-width: 350px; 
+  background-color:palegreen;
+}
 
 
 /***************************/
-/* SECTION: 5-DAY FORECAST STYLES */
+/* DETAILED FORECAST STYLES */
+
+.today-weather-info {
+  max-width: 800px; 
+  background-color: lightpink;      
+}
+
+/***************************/
+/* 5-DAY FORECAST STYLES */
+
+.forecast-weather-info {
+  background-color: lightyellow;
+}
+
+.future-day {
+  background-color: aqua;
+}
