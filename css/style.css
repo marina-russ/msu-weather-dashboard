@@ -14,6 +14,11 @@ body {
 /***************************/
 /* ASIDE STYLES */
 
+#search-history-column {
+  max-width: 350px; 
+  background-color:palegreen;
+}
+
 .search-and-list {}
 
 li {
@@ -23,6 +28,18 @@ li {
 /***************************/
 /* SECTION: DETAILED FORECAST STYLES */
 
+.today-weather-info {
+  max-width: 800px; 
+  background-color: lightpink;      
+}
 
 /***************************/
 /* SECTION: 5-DAY FORECAST STYLES */
+
+.forecast-weather-info {
+  background-color: lightyellow;
+}
+
+.future-day {
+  background-color: aqua;
+}

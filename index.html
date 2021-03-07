@@ -25,7 +25,7 @@
 
     <div class="row">
       <!-- search for city, display search history -->
-      <div class="col-3" style="max-width: 350px; background-color:palegreen;">
+      <div class="col-3" id="search-history-column">
         <h5>Search for a City:</h5>
         <div>
 
@@ -44,8 +44,7 @@
 
       <div class="col-7">
 
-        <section class="" style="max-width: 800px; background-color: lightpink;"> <!-- Today's detailed forecast -->        
-          
+        <section class="today-weather-info">  <!-- Today's detailed forecast -->
           <div class="col-3">
             <h3 id="city-name"></h3>
             <h4 id="today-date">Today's Date</h4>
@@ -66,40 +65,40 @@
         </section>
 
         <h2>5-Day Forecast</h2>
-        <section class="row" style="background-color: lightyellow;"> 
+        <section class="row forecast-weather-info"> 
           <!-- 5 day forecast -->
           
           <div class="container">
             <div class="row">
-              <div class="col">
+              <div class="col future-day">
                 <h4 class="day1">Tomorrow:</h4>
                 <div class="future-icon-day1"></div>
                 <p class="future-temp-day1">Temp: °F</p>
                 <p class="future-humid-day1">Humidity:</p>
                 <p class="future-desc-day1">Summary:</p>
               </div>
-              <div class="col">
+              <div class="col future-day">
                 <h4 class="day2">2 Days:</h4>
                 <div class="future-icon-day2"></div>
                 <p class="future-temp-day2">Temp: °F</p>
                 <p class="future-humid-day2">Humidity:</p>
                 <p class="future-desc-day2">Summary:</p>
               </div>
-              <div class="col">
+              <div class="col future-day">
                 <h4 class="day3">3 Days:</h4>
                 <div class="future-icon-day3"></div>
                 <p class="future-temp-day3">Temp: °F</p>
                 <p class="future-humid-day3">Humidity:</p>
                 <p class="future-desc-day3">Summary:</p>
               </div>
-              <div class="col">
+              <div class="col future-day">
                 <h4 class="day4">4 Days:</h4>
                 <div class="future-icon-day4"></div>
                 <p class="future-temp-day4">Temp: °F</p>
                 <p class="future-humid-day4">Humidity:</p>
                 <p class="future-desc-day4">Summary:</p>
               </div>
-              <div class="col">
+              <div class="col future-day">
                 <h4 class="day5">5 Days:</h4>
                 <div class="future-icon-day5"></div>
                 <p class="future-temp-day5">Temp: °F</p>
@@ -111,7 +110,6 @@
         </section>
       </div>
     </div> 
-
 
   </main>
   <!-- Bootstrap 5 -->
