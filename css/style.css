@@ -16,36 +16,62 @@ li {
   background-color: #fff;
   border-radius: 30px;
   min-width: 80px;
-  max-width: 150px;
+  max-width: 130px;
+  margin: 0 auto;
 }
 
-/***************************/
-/* NAVIGATION STYLES */
+img {
+  width: 80px;
+}
 
 /***************************/
 /* SEARCH STYLES */
 
 #search-history-column {
   max-width: 350px; 
-  background-color:palegreen;
+  background-color: mediumturquoise;
+  border-radius: 20px;
 }
 
+input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+}
 
 /***************************/
 /* DETAILED FORECAST STYLES */
 
 .today-weather-info {
   max-width: 800px; 
-  background-color: lightpink;      
+  background-color: lightpink;   
+  border-radius: 20px;
+  padding: 20px;   
+}
+
+#city-name {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+#today-date {
+  text-transform: uppercase;
 }
 
 /***************************/
 /* 5-DAY FORECAST STYLES */
 
-.forecast-weather-info {
-  background-color: lightyellow;
+.future-day {
+  border-radius: 20px;
+  color: #fff;
 }
 
-.future-day {
-  background-color: aqua;
+.forecast-header {
+  text-transform: uppercase;
+  color: blue;
+  font-weight: 700;
 }
