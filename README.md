@@ -47,7 +47,7 @@
  </table>
  
 ### :mage: Deployed Application: <a name="deployed"></a>
-[Link to Deployed Application](https://marina-russ.github.io/weather-dashboard/)
+[Link to Deployed Application](https://marina-russ.github.io/msu-weather-dashboard/)
 
 ### :camera: Screenshot of App:<a name="screenshot"></a>
 ![GitHub Logo](assets/screenshots/app-screenshot.png)
